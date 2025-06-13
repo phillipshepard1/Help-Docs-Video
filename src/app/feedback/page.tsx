@@ -101,9 +101,9 @@ export default function FeedbackPage() {
   return (
     <div className="min-h-screen bg-gray-50 flex">
       <Sidebar />
-      <main className="flex-1 px-4 py-6 sm:p-8 md:p-12">
-        <div className="max-w-4xl w-full mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4 sm:gap-0">
+      <main className="flex-1 w-full px-4 py-6 sm:mx-auto sm:max-w-4xl sm:p-8 md:p-12">
+        <div className="w-full">
+          <div className="flex flex-col sm:flex-row justify-between mb-8 gap-4 sm:gap-0">
             <div className="flex items-center gap-3">
               <span className="block md:hidden w-10" />
               <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">Feedback</h1>
@@ -122,7 +122,7 @@ export default function FeedbackPage() {
           )}
 
           {/* Feedback Form */}
-          <div className="bg-white rounded-lg shadow mb-8">
+          <div className="w-full text-left bg-white rounded-lg shadow mb-8 sm:max-w-2xl sm:mx-auto">
             <div className="p-6">
               <h2 className="text-lg font-medium text-gray-900 mb-4">Submit New Feedback</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -197,32 +197,49 @@ export default function FeedbackPage() {
           </div>
 
           {/* Feedback History */}
-          <div className="bg-white rounded-lg shadow">
-            <div className="p-6">
-              <h2 className="text-lg font-medium text-gray-900 mb-4">Feedback History</h2>
-              <div className="space-y-4">
-                {feedbackList.map((feedback) => (
-                  <div
-                    key={feedback.id}
-                    className="border border-gray-200 rounded-lg p-4 hover:border-gray-300 transition-colors"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-sm font-medium text-gray-900">{feedback.title}</h3>
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(feedback.status)}`}>
-                        {feedback.status.replace('_', ' ').charAt(0).toUpperCase() + feedback.status.slice(1)}
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-500 mb-2">{feedback.description}</p>
-                    <div className="flex items-center justify-between text-xs text-gray-500">
-                      <span>{new Date(feedback.createdAt).toLocaleDateString()}</span>
-                      <span className="inline-flex items-center">
-                        <ChatBubbleLeftRightIcon className="h-4 w-4 mr-1" />
-                        {feedback.type.charAt(0).toUpperCase() + feedback.type.slice(1)}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <div className="bg-white rounded-lg shadow overflow-hidden">
+            <div className="px-6 py-4 border-b border-gray-200">
+              <h2 className="text-lg font-medium text-gray-900">Feedback History</h2>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Type
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Title
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Date
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {feedbackList.map((feedback) => (
+                    <tr key={feedback.id} className="hover:bg-gray-50">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {FEEDBACK_TYPES.find(type => type.id === feedback.type)?.label}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {feedback.title}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(feedback.status)}`}>
+                          {feedback.status.replace('_', ' ')}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {feedback.createdAt.toLocaleDateString()}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
