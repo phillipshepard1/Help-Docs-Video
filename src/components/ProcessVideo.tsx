@@ -10,7 +10,7 @@ export default function ProcessVideo({ videoName = 'Product_Demo_V2.mp4' }: { vi
       <div className="border-2 border-dashed border-green-300 bg-green-50 rounded-lg flex flex-col items-center justify-center py-8 mb-8">
         <CheckCircleIcon className="h-12 w-12 text-green-500 mb-4" />
         <div className="text-xl font-semibold text-green-700 mb-2">Video Analysis Complete!</div>
-        <div className="text-gray-600 text-center">Your video "{videoName}" has been successfully analyzed.</div>
+        <div className="text-gray-600 text-center">Your video &quot;{videoName}&quot; has been successfully analyzed.</div>
       </div>
       <div className="mb-4">
         <div className="font-medium text-gray-700 mb-3">What would you like to create?</div>

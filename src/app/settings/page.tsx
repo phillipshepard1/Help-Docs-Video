@@ -170,7 +170,7 @@ export default function SettingsPage() {
                     <div className="flex items-center justify-between">
                       <div>
                         <h3 className="text-sm font-medium text-gray-900">Activity Status</h3>
-                        <p className="text-sm text-gray-500">Show when you're active on the platform</p>
+                        <p className="text-sm text-gray-500">Show when you&apos;re active on the platform</p>
                       </div>
                       <label className="relative inline-flex items-center cursor-pointer">
                         <input type="checkbox" className="sr-only peer" defaultChecked />

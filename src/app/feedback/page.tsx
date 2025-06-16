@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import Sidebar from '@/components/Sidebar'
-import { ChatBubbleLeftRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
+import { CheckCircleIcon } from '@heroicons/react/24/outline'
 
 type FeedbackType = 'bug' | 'feature' | 'improvement' | 'other'
 type FeedbackStatus = 'pending' | 'in_review' | 'completed'

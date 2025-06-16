@@ -8,13 +8,13 @@ export default function AIAssistant({ videoName = 'Product_Demo_V2.mp4' }: { vid
         {/* AI message */}
         <div className="flex">
           <div className="bg-blue-600 text-white rounded-lg px-4 py-2 max-w-[70%] text-sm">
-            Okay, I'm starting to generate the help document for "{videoName}".
+            Okay, I&apos;m starting to generate the help document for &quot;{videoName}&quot;.
           </div>
         </div>
         {/* User message */}
         <div className="flex justify-end">
           <div className="bg-gray-100 text-gray-700 rounded-lg px-4 py-2 max-w-[70%] text-sm">
-            Great! Let me know when it's ready.
+            Great! Let me know when it&apos;s ready.
           </div>
         </div>
         {/* AI message (generating) */}

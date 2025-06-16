@@ -13,8 +13,8 @@ export default function LoginPage() {
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [validationErrors, setValidationErrors] = useState<{
-    email?: string
-    password?: string
+    email?: string | null
+    password?: string | null
   }>({})
   const { signIn } = useAuth()
   const router = useRouter()

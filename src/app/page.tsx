@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
 import {
   VideoCameraIcon,
   DocumentTextIcon,
@@ -39,8 +38,6 @@ const benefits = [
 ]
 
 export default function LandingPage() {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
-
   return (
     <div className="bg-white">
       {/* Header/Navigation */}
@@ -90,7 +87,6 @@ export default function LandingPage() {
                 <ArrowRightIcon className="ml-2 h-5 w-5" />
               </Link>
               <button
-                onClick={() => setIsVideoPlaying(true)}
                 className="inline-flex items-center px-6 py-3 rounded-lg border border-gray-200 text-gray-700 font-medium hover:bg-gray-50 transition-colors"
               >
                 Watch Demo
